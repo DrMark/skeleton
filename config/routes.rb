@@ -43,8 +43,8 @@ ActionController::Routing::Routes.draw do |map|
 
   # restful-auth routes
   map.signup  '/signup', :controller => 'users',   :action => 'new'
-  map.signin  '/login',  :controller => 'session', :action => 'new'
-  map.signout '/logout', :controller => 'session', :action => 'destroy'
+  map.signin  '/login',  :controller => 'sessions', :action => 'new'
+  map.signout '/logout', :controller => 'sessions', :action => 'destroy'
 
   map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
 
