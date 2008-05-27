@@ -46,7 +46,7 @@ ActionController::Routing::Routes.draw do |map|
   map.signin  '/login',  :controller => 'session', :action => 'new'
   map.signout '/logout', :controller => 'session', :action => 'destroy'
 
-  map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil)
+  map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
 
   # Install the default routes as the lowest priority.
   map.connect ':controller/:action/:id'
