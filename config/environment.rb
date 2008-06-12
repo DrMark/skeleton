@@ -5,7 +5,7 @@
 # ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.0.991' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.1.0' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -48,8 +48,8 @@ Rails::Initializer.run do |config|
   # Make sure the secret is at least 30 characters and all random, 
   # no regular words or you'll be exposed to dictionary attacks.
   config.action_controller.session = {
-    :session_key => '_rails-starter_app_session',
-    :secret      => '55783396e38d5f6412df3ad12dd81c48105ebb6cc797174d85edf9cbf3647d853b3653fb04a69b534194b36ae51b3ed2026c86289892535b0213d643d3a1f176'
+    :session_key => '_starter_app_session',
+    :secret      => 'bea187054a0d2f43beebf89ba71b0cedbe693f872162be2ffd36105af4b25c7c83ba0098f62dfcc40cd398909952f0b7742aef81f88dd3a21fa45ecd834ba3b5'
   }
 
   # Use the database for sessions instead of the cookie-based default,
@@ -64,9 +64,4 @@ Rails::Initializer.run do |config|
 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
-  config.active_record.observers = :users_observer
-  config.active_record.observers = :user_observer
-
-  # Make ActiveRecord only save the attributes that have changed since the record was loaded.
-  # config.active_record.partial_updates = true
 end

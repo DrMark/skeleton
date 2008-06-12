@@ -1,10 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :users, :member => { :suspend   => :put,
-                                     :unsuspend => :put,
-                                     :purge     => :delete }
-
-  map.resource :session
-
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -40,13 +34,6 @@ ActionController::Routing::Routes.draw do |map|
   # map.root :controller => "welcome"
 
   # See how all your routes lay out with "rake routes"
-
-  # restful-auth routes
-  map.signup  '/signup', :controller => 'users',   :action => 'new'
-  map.signin  '/login',  :controller => 'sessions', :action => 'new'
-  map.signout '/logout', :controller => 'sessions', :action => 'destroy'
-
-  map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
 
   # Install the default routes as the lowest priority.
   map.connect ':controller/:action/:id'
