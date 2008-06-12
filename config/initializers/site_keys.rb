@@ -16,6 +16,7 @@
 # Please note: if you change this, all the passwords will be invalidated, so DO
 # keep it someplace secure.  Use the random value given or type in the lyrics to
 # your favorite Jay-Z song or something; any moderately long, unpredictable text.
+
 REST_AUTH_SITE_KEY         = 'a47a6892613831e59c3b443a2448d4f93499f392'
   
 # Repeated applications of the hash make brute force (even with a compromised
