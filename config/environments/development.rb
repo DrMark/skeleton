@@ -1,5 +1,13 @@
 # Settings specified here will take precedence over those in config/environment.rb
 
+# Application variables:
+APP_DOMAIN = 'localhost:3000'
+APP_URL = 'http://localhost:3000'
+
+FROM_EMAIL = 'no-reply@notaproblem.com'
+DO_NOT_REPLY_EMAIL = 'no-reply@notaproblem.com'
+CUSTOMER_SUPPORT_EMAIL = 'customer_support@notaproblem.com'
+
 # In the development environment your application's code is reloaded on
 # every request.  This slows down response time but is perfect for development
 # since you don't have to restart the webserver when you make code changes.
@@ -15,3 +23,22 @@ config.action_controller.perform_caching             = false
 
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
+
+# This configuration relies upon having the Mailtrap gem installed.
+# Mailtrap is a mock SMTP server for use in Rails development.
+# The mailtrap gem intercepts all email and writes it to a file.
+# By default it creates an SMTP server on localhost port 2525 that writes 
+# messages into /var/tmp/mailtrap.log. If you're happy with the default you can
+# be up and running with:
+#
+#  sudo gem install -y mailtrap
+#  mailtrap start
+
+ActionMailer::Base.perform_deliveries = true
+ActionMailer::Base.raise_delivery_errors = true
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.smtp_settings = {
+  :domain => "#{APP_DOMAIN}",
+  :address => "localhost",
+  :port => 2525,
+}

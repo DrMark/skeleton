@@ -1,0 +1,9 @@
+# Used for subscription emails (subscription_notifier.rb)
+app_name: NotAProblem
+from_email: noreply@notaproblem.com
+
+# Used in account creation (account.rb)
+base_domain: notaproblem.com
+
+# Set this to true if you want to require CC info when creating a paid account
+require_payment_info_for_trials: true
