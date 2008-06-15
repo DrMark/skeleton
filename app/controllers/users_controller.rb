@@ -31,6 +31,7 @@ class UsersController < ApplicationController
     user = User.find_by_activation_code(params[:activation_code]) unless params[:activation_code].blank?
     case
     when (!params[:activation_code].blank?) && user && !user.active?
+      user.notify! # this fires the user_observer action to send the welcome you are activated email.
       user.activate!
       flash[:notice] = "Signup complete! Please sign in to continue."
       redirect_to '/login'

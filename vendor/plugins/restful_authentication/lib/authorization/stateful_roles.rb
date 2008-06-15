@@ -12,12 +12,17 @@ module Authorization
         acts_as_state_machine :initial => :pending
         state :passive
         state :pending, :enter => :make_activation_code
+        state :notified
         state :active,  :enter => :do_activate
         state :suspended
         state :deleted, :enter => :do_delete
 
         event :register do
           transitions :from => :passive, :to => :pending, :guard => Proc.new {|u| !(u.crypted_password.blank? && u.password.blank?) }
+        end
+        
+        event :notify do
+          transitions :from => :pending, :to => :notified
         end
         
         event :activate do
@@ -49,6 +54,7 @@ module Authorization
       def recently_activated?
         @activated
       end
+      
       def do_delete
         self.deleted_at = Time.now.utc
       end
